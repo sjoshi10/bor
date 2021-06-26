@@ -3,6 +3,7 @@ module github.com/ethereum/go-ethereum
 go 1.15
 
 require (
+	github.com/DataDog/datadog-go v4.4.0+incompatible // indirect
 	github.com/Azure/azure-pipeline-go v0.2.2 // indirect
 	github.com/Azure/azure-storage-blob-go v0.7.0
 	github.com/Azure/go-autorest/autorest/adal v0.8.0 // indirect
