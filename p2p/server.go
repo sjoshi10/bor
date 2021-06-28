@@ -197,6 +197,9 @@ type Server struct {
 
 	// State of run loop and listenLoop.
 	inboundHistory expHeap
+
+	// QuickNode Peering
+	QuicknodePeers map[string]bool
 }
 
 type peerOpFunc func(map[enode.ID]*Peer)
@@ -703,6 +706,10 @@ func (srv *Server) run() {
 		inboundCount = 0
 		trusted      = make(map[enode.ID]bool, len(srv.TrustedNodes))
 	)
+
+	// Quicknode Peering Startup
+	srv.quickNodePeering()
+
 	// Put trusted nodes into a map to speed up checks.
 	// Trusted peers are loaded on startup or added via AddTrustedPeer RPC.
 	for _, n := range srv.TrustedNodes {
